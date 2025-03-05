@@ -30,6 +30,12 @@ a {
 ul {
     list-style: none;
 }
+.logo-img {
+    position: absolute;
+    top: 10px;   /* Margen desde arriba */
+    left: 20px;  /* Margen desde la izquierda */
+    width: 100px; /* Ajusta el tamaño según necesites */
+}
 
 .highlight {
     background: var(--gradient);
@@ -309,8 +315,23 @@ h2 {
     color: var(--secondary-color);
 }
 
+.contact-container {
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
 .contact-form {
+    flex: 1; /* Aumentamos el espacio del formulario */
+    width: 100%;
+}
+
+.contact-info {
     flex: 1;
+    padding-right: 30px; /* Ajusta el espacio entre la info y el formulario */
 }
 
 .form-group {
@@ -336,6 +357,19 @@ input:focus, textarea:focus {
 textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+/* Para hacerlo responsive */
+@media (max-width: 300px) {
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-info {
+        padding-right: 0;
+        margin-bottom: 20px;
+    }
 }
 
 .btn-submit {
@@ -471,7 +505,7 @@ footer {
 .whatsapp-button {
     position: fixed;
     bottom: 20px; /* Margen de 7px */
-    right: 20px;  /* Margen de 7px */
+    right: 15px;  /* Margen de 7px */
     width: 50px;
     height: 50px;
     background: #25D366; /* Verde oficial de WhatsApp */
