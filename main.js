@@ -96,19 +96,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
+    
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            
-            // Here you would typically send the form data to a server
-            // For demonstration, we'll just show an alert
-            alert(`Gracias ${name} por tu mensaje. Te contactaremos pronto en ${email}.`);
-            
-            // Reset form
-            contactForm.reset();
+    
+            // Simulación de envío (si usas Netlify Forms, esto ya se envía solo)
+            setTimeout(() => {
+                showPopup();
+                contactForm.reset();
+            }, 500); // Simula un pequeño retraso en el envío
         });
     }
-});
+    
+    // Función para mostrar el popup
+    function showPopup() {
+        const popup = document.getElementById('popup');
+        popup.classList.remove('hidden');
+        popup.classList.add('show');
+    
+        // Ocultar el popup después de 3 segundos
+        setTimeout(() => {
+            popup.classList.remove('show');
+            setTimeout(() => popup.classList.add('hidden'), 500);
+        }, 3000);
+    }
+    
+    }
+);

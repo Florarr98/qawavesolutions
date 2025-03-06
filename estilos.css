@@ -531,3 +531,41 @@ footer {
     z-index: 1;
     font-size: 30px; /* Tamaño del icono */
 }
+.popup {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 102, 204, 0.8); /* Azul medio transparente */
+    color: white; /* Tipografía en blanco */
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 14px; /* Espacio entre icono y texto */
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* Icono de check en verde, alineado a la izquierda */
+.popup-icon {
+    color: #28a745; /* Verde */
+    font-size: 20px;
+}
+
+/* Ajuste del texto para que esté a la derecha */
+.popup-text {
+    margin-left: auto;
+}
+
+.popup.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
