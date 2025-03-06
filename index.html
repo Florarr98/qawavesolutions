@@ -96,7 +96,13 @@
                 </div>
             </div>
             <div class="contact-form">
-                <form id="contactForm" name="contact" method="POST" data-netlify="true">
+                <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <!-- Campo oculto para evitar spam (honeypot) -->
+                    <div class="hidden">
+                        <label for="bot-field">Don't fill this out if you're human:</label>
+                        <input id="bot-field" name="bot-field" type="text">
+                    </div>
+            
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Nombre completo" required>
                     </div>
