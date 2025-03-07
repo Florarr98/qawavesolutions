@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+xdocument.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -92,37 +92,41 @@ document.addEventListener('DOMContentLoaded', function() {
         sectionObserver.observe(section);
     });
     
-    // Form submission
+    // Form submission (evitar redirección y mostrar pop-up)
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-    
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-    
-            // Simulación de envío (si usas Netlify Forms, esto ya se envía solo)
-            setTimeout(() => {
+            e.preventDefault(); // Previene el comportamiento predeterminado de envío (sin redirección)
+
+            const formData = new FormData(contactForm);
+            
+            // Aquí enviamos el formulario de manera manual utilizando fetch
+            try {
+                await fetch("/", {
+                    method: "POST",
+                    body: formData
+                });
+
+                // Muestra el pop-up después de enviar el formulario
                 showPopup();
-                contactForm.reset();
-            }, 500); // Simula un pequeño retraso en el envío
+                contactForm.reset(); // Limpiamos el formulario después del envío
+            } catch (error) {
+                console.error("Error al enviar el formulario:", error);
+            }
         });
     }
     
-    // Función para mostrar el popup
+    // Función para mostrar el pop-up
     function showPopup() {
         const popup = document.getElementById('popup');
         popup.classList.remove('hidden');
         popup.classList.add('show');
     
-        // Ocultar el popup después de 3 segundos
+        // Ocultar el pop-up después de 3 segundos
         setTimeout(() => {
             popup.classList.remove('show');
             setTimeout(() => popup.classList.add('hidden'), 500);
         }, 3000);
     }
-    
-    }
-);
+});

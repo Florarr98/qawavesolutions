@@ -340,7 +340,7 @@ h2 {
 
 input, textarea {
     width: 100%;
-    padding: 1rem;
+    padding: 0.6875rem;
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 5px;
@@ -348,7 +348,10 @@ input, textarea {
     font-family: 'Poppins', sans-serif;
     transition: border-color 0.3s;
 }
-
+label {
+    font-size:14px;
+    color: #b3b3b3;
+}
 input:focus, textarea:focus {
     outline: none;
     border-color: var(--primary-color);
