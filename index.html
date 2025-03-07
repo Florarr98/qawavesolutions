@@ -96,18 +96,23 @@
                 </div>
             </div>
             <div class="contact-form">
-                <form id="contactForm" name="contact" method="POST" data-netlify="true">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Nombre completo" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Mensaje" required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Enviar</button>
+                <form name="contact" method="POST" data-netlify="true">
+                    <input type="hidden" name="subject" value="Consulta desde sitio web" />
+                    
+                    <p>
+                        <label>Tu Nombre: <input type="text" name="name" required /></label>
+                    </p>
+                    <p>
+                        <label>Tu Email: <input type="email" name="email" required /></label>
+                    </p>
+                    <p>
+                        <label>Mensaje: <textarea name="message" required></textarea></label>
+                    </p>
+                    <p>
+                        <button type="submit">Enviar</button>
+                    </p>
                 </form>
+                
             </div>
             
             </div>
