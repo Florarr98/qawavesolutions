@@ -97,36 +97,35 @@ xdocument.addEventListener('DOMContentLoaded', function() {
     
     if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault(); // Previene el comportamiento predeterminado de envío (sin redirección)
+            e.preventDefault();
 
-            const formData = new FormData(contactForm);
-            
-            // Aquí enviamos el formulario de manera manual utilizando fetch
-            try {
-                await fetch("/", {
-                    method: "POST",
-                    body: formData
-                });
+            // Aquí puedes obtener los valores si necesitas hacer algo con ellos, por ejemplo:
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
 
-                // Muestra el pop-up después de enviar el formulario
-                showPopup();
-                contactForm.reset(); // Limpiamos el formulario después del envío
-            } catch (error) {
-                console.error("Error al enviar el formulario:", error);
-            }
+            // No hay redirección, solo mostramos el pop-up
+            showPopup();
+
+            // Esto es opcional si deseas hacer algo con los datos del formulario, pero recuerda que en Netlify no es necesario hacer nada
+            contactForm.reset();
         });
     }
-    
+
     // Función para mostrar el pop-up
     function showPopup() {
         const popup = document.getElementById('popup');
         popup.classList.remove('hidden');
         popup.classList.add('show');
-    
-        // Ocultar el pop-up después de 3 segundos
+
+        // Ocultar el popup después de 3 segundos
         setTimeout(() => {
             popup.classList.remove('show');
             setTimeout(() => popup.classList.add('hidden'), 500);
         }, 3000);
     }
 });
+[[redirects]]
+  from = "/thank-you"
+  to = "/"
+  status = 200
