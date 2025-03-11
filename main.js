@@ -125,7 +125,8 @@ xdocument.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 });
-[[redirects]]
-  from = "/thank-you"
-  to = "/"
-  status = 200
+//[[redirects]]
+//  from = "/success"
+//  to = "/"
+//  status = 200
+//  force = true
