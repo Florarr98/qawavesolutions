@@ -1,4 +1,4 @@
-xdocument.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -125,8 +125,3 @@ xdocument.addEventListener('DOMContentLoaded', function() {
         }, 3000);
     }
 });
-//[[redirects]]
-//  from = "/success"
-//  to = "/"
-//  status = 200
-//  force = true
